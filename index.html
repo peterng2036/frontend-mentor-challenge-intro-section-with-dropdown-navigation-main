@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="./index.css" />
 
+    <script defer src="index.js"></script>
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -28,11 +29,19 @@
     </style>
   </head>
   <body>
+    <div id="overlay" class="hidden"></div>
+
     <main>
       <header>
         <h1 class="company-title">snap</h1>
         <nav>
-          <a href="#"
+          <img
+            class="close-menu-button hidden"
+            src="./images/icon-close-menu.svg"
+            alt=""
+          />
+
+          <a href="#" id="features-nav"
             >Features
             <img
               src="./images/icon-arrow-up.svg"
@@ -67,7 +76,30 @@
             </ul>
           </a>
 
-          <a href="#">
+          <ul
+            class="dropdown-content-mobile hidden"
+            id="mobile-features-dropdown"
+          >
+            <li>
+              <img src="./images/icon-todo.svg" alt="" />
+              <span>Todo List</span>
+            </li>
+
+            <li>
+              <img src="./images/icon-calendar.svg" alt="" />
+              <span>Calendar</span>
+            </li>
+            <li>
+              <img src="./images/icon-reminders.svg" alt="" />
+              <span>Reminders</span>
+            </li>
+            <li>
+              <img src="./images/icon-planning.svg" alt="" />
+              <span>Planning</span>
+            </li>
+          </ul>
+
+          <a href="#" id="company-nav">
             Company
             <img
               src="./images/icon-arrow-up.svg"
@@ -94,21 +126,43 @@
             </ul>
           </a>
 
+          <ul
+            class="dropdown-content-mobile hidden"
+            id="mobile-company-dropdown"
+          >
+            <li>
+              <span>History</span>
+            </li>
+            <li>
+              <span>Our Team</span>
+            </li>
+            <li>
+              <span>Blog</span>
+            </li>
+          </ul>
+
           <a href="#">About</a>
 
           <a href="#">Careers</a>
 
           <div class="user-action-container">
-            <a href="#">Login</a>
+            <a href="#" class="login-button">Login</a>
             <a href="#" class="register-button">Register</a>
           </div>
         </nav>
+
+        <img
+          id="menu-btn"
+          class="mobile-menu-icon"
+          src="./images/icon-menu.svg"
+          alt=""
+        />
       </header>
 
       <article>
         <section class="hero-section-desc-container">
           <h2 class="hero-title">
-            Make <br />
+            Make <br class="hero-title-line-break" />
             remote work
           </h2>
           <p class="hero-desc">
@@ -128,7 +182,13 @@
 
         <figure>
           <img
+            class="image-hero-desktop"
             src="./images/image-hero-desktop.png"
+            alt="Person working with a laptop"
+          />
+          <img
+            class="image-hero-mobile"
+            src="./images/image-hero-mobile.png"
             alt="Person working with a laptop"
           />
         </figure>

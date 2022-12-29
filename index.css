@@ -19,9 +19,6 @@ html {
 
 body {
   font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   background-color: white;
 }
 
@@ -31,6 +28,39 @@ main {
   flex-direction: column;
   padding: 3.2rem;
   gap: 6.4rem;
+  margin: auto;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+.hidden {
+  display: none !important;
+}
+
+.overlay-nav {
+  position: fixed;
+  width: 256px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: var(--main-white);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  padding-top: 12rem;
+  padding: 12rem 3.6rem;
+  align-items: flex-start;
+  gap: 3.6rem;
 }
 
 /* 
@@ -70,6 +100,16 @@ nav a {
   display: block;
 }
 
+.mobile-menu-icon {
+  display: none;
+}
+
+.close-menu-button {
+  position: absolute;
+  right: 3.6rem;
+  top: 3.6rem;
+}
+
 nav a:hover {
   color: var(--main-black);
 }
@@ -86,9 +126,7 @@ nav a:hover .down-arrow {
   font-size: 4.8rem;
 }
 
-.user-action-container {
-  display: flex;
-  gap: 4.8rem;
+.login-button {
   margin-left: auto;
 }
 
@@ -112,6 +150,12 @@ nav a:hover .down-arrow {
   left: -4.8rem;
   border-radius: 12px;
   color: var(--main-medium-gray);
+}
+
+.user-action-container {
+  display: flex;
+  margin-left: auto;
+  gap: 4.8rem;
 }
 
 nav ul li {
@@ -145,11 +189,19 @@ article {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0 3.2rem;
-  /* column-gap: 12.8rem; */
 }
 
 figure {
   align-self: center;
+  min-width: 440px;
+}
+
+.image-hero-desktop {
+  display: block;
+}
+
+.image-hero-mobile {
+  display: none;
 }
 
 .hero-section-desc-container {
@@ -196,4 +248,114 @@ figure {
   align-items: center;
   gap: 4.8rem;
   flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  main {
+    padding: 0;
+    gap: 1.2rem;
+    padding-bottom: 6.4rem;
+  }
+
+  header {
+    padding: 2.4rem;
+  }
+
+  .company-title {
+    font-size: 3.2rem;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .login-button {
+    margin-left: unset;
+  }
+
+  #menu-btn {
+    margin-left: auto;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  a:hover .dropdown-content {
+    display: none;
+  }
+
+  nav a:hover {
+    color: var(--main-medium-gray);
+  }
+
+  .dropdown-content-mobile {
+    color: var(--main-medium-gray);
+  }
+
+  .user-action-container {
+    margin-top: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: unset;
+    gap: 2.4rem;
+    width: 100%;
+  }
+
+  .register-button {
+    padding: 1.2rem 6.4rem;
+  }
+
+  article {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  figure {
+    grid-row: 1;
+    min-width: unset;
+    width: 100vw;
+  }
+
+  .image-hero-desktop {
+    display: none;
+  }
+
+  .image-hero-mobile {
+    display: block;
+  }
+
+  .hero-section-desc-container {
+    align-items: center;
+    gap: 3.6rem;
+    padding: 0 1.6rem;
+    text-align: center;
+  }
+
+  .hero-title-line-break {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 3.6rem;
+    color: var(--main-black);
+    margin-top: 4.8rem;
+  }
+
+  .hero-desc {
+    font-size: 1.6rem;
+    max-width: unset;
+  }
+
+  .clients-container {
+    justify-content: space-between;
+    gap: 0.8rem;
+    width: 100%;
+    margin-top: 2.4rem;
+  }
+
+  footer img {
+    width: 70px;
+  }
 }
